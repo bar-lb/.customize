@@ -2,10 +2,9 @@ source ${HOME}/.customize/style.sh
 
 GIT_BRANCH="(\$(__git_ps1 '%s'))"
 
-LB=$(echo "(LB)" | paint $RED | paint $BOLD)
+LB=$(echo "(\$(cat ${HOME}/.lbprompt))" | paint $RED | paint $BOLD)
 GIT=$(echo $GIT_BRANCH | paint $BLUE | paint $BOLD)
 DIR=$(echo "\W" | paint $CYAN | paint $BOLD)
-STATION=$(echo "\u@\H" | paint $GREEN | paint $BOLD)
 END=$(echo "\$" | paint $YELLOW | paint $BOLD)
 
 STATION_NAME="$(cat /etc/hostname)"
