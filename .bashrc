@@ -267,3 +267,13 @@ cdw(){
 
 complete -F _complete_project_name jp
 complete -F _complete_project_name cdw
+
+prcheck_kernelight(){
+	echo "make sure that this is the correct list of test from CI!" | paint $YELLOW
+	sleep 5
+	jp kernelight && \
+	dockerize run_test.sh \
+		--pylint --reporter_name xml_reporter --tag_name=sanity \
+		--retries_allocation_failures 4 \
+		--parallel 4 racktests/*.py ${USRLIGHT_RACKTEST}/{01,02,03,04,05,17,23,30}_*
+}
