@@ -1,3 +1,3 @@
-cp $HOME/.bashrc $HOME/.bashrc.backup && \
-cp $HOME/.customize/.bashrc $HOME/.bashrc
-echo ".bashrc installed! re-open your terminal."
+./install.bashrc.sh
+./install.nvim.sh
+echo "DONE!"
