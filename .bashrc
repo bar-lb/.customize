@@ -240,6 +240,31 @@ gitbr(){
     git branch
 }
 
+
+_makesure(){
+ 	echo "sure?"
+	read $ANS
+	if [ "$ANS" = "yes" ];
+	then
+		return 0
+	fi
+	
+	return 1
+}
+
+gitprune(){
+	_makesure && git branch | grep -v "master" | xargs git branch -D
+
+}
+
+gitfresh(){
+	BRANCH=$1
+	_makesure && \
+	git checkout origin/$BRANCH && \
+	git branch -D $BRANCH && \
+	git checkout -b $BRANCH
+}
+
 _complete_project_name(){
     REPOS=( "kernelight" "usrlight" "testOSterone" "common" "management" "systests" "rootfs" )
 
