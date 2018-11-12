@@ -241,7 +241,7 @@ gitbr(){
 }
 
 _complete_project_name(){
-    REPOS=( "kernelight" "usrlight" "testOSterone" "common" "management" "systests")
+    REPOS=( "kernelight" "usrlight" "testOSterone" "common" "management" "systests" "rootfs" )
 
     COMPREPLY=()
 
