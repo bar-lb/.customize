@@ -277,3 +277,5 @@ prcheck_kernelight(){
 		--retries_allocation_failures 4 \
 		--parallel 8 racktests/*.py ${USRLIGHT_RACKTEST}/{01,02,03,04,05,17,23,30}_*
 }
+
+tmux
