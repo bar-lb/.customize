@@ -162,6 +162,8 @@ fi
 
 source ${HOME}/.customize/PS1.sh
 
+${HOME}/.customize/remote_style.sh
+
 #############################################
 
 ################## Shortcuts! ###############
