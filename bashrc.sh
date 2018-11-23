@@ -305,4 +305,6 @@ prcheck_kernelight(){
 		--parallel 8 racktests/*.py ${USRLIGHT_RACKTEST}/{01,02,03,04,05,17,23,30}_*
 }
 
-tmux
+# Enter to tmux when opening terminal
+[ -z "$TMUX" ] && tmux
+
