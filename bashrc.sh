@@ -171,37 +171,24 @@ ${HOME}/.customize/remote_style.sh
 
 #don't use those who start with '__'
 
+alias dr="dockerize run_test.sh --debug --pylint"
 
-cdd(){ # goto project
-	cd ~/workspace/$1
-}
-
-dr(){ #Shortcuts for "dockerize run_test.sh"
-    retries=${2:-1}
-    for ((number=0;number < $retries;number++))
-	{
-	    number_of_times_human=$(($number + 1))
-		echo "This is the $number_of_times_human time";
-    	dockerize run_test.sh "$1" --debug --pylint
-    }
-}
-
-rfsbuild(){ # build and checkin rootfs
+rfs(){ # build and checkin rootfs
     CAME_FROM=$PWD
     cd ${WORKSPACE_TOP}/rootfs
-    dockerize make $1 || (banner "ROOTFS BUILD FAILED"; echo "rootfs: $1")
-    dockerize make checkin_$1 || (banner "ROOTFS CHECKIN FAILED"; echo "rootfs: $1")
+    dockerize make $1 || (echo -e "ROOTFS BUILD FAILED! $1" | paint $RED | paint $BOLD)
+    dockerize make checkin_$1 || (echo -e "ROOTFS CHECKIN FAILED $1" | paint $RED | paint $UNDERLINE)
     cd ${CAME_FROM}
 }
 
 kernmake(){ # build relevant rootfses for running kernelight tests
-    rfsbuild rootfs_product_base$testOS
+    rfs rootfs_product_base$testOS
 }
 
 
 sysmake(){ # build relevant rootfses for running system tests
-    rfsbuild rootfs_product$testOS
-    rfsbuild rootfs_host_basic
+    rfs rootfs_product$testOS
+    rfs rootfs_host_basic
 }
 
 
@@ -219,34 +206,18 @@ sync01(){ # *experimental* create a shared folder betweem local comp and build01
     scp -r /home/$USER/sync01_files bar@build01:/users1/$USER/
 }
 
-gitch(){
-    git checkout $1
-}
+THIS_BRANCH=$(__git_ps1 | tr -d '()' | cut -c 2-)
 
-gitchb(){
-    git checkout -b $1
-}
-
-gitpushme(){
-    git push -f origin HEAD:$(__git_ps1 | tr -d '()' | cut -c 2-)
-}
-
-gits(){
-    git status
-}
-gitl(){
-    git log
-}
-
-gitbr(){
-    git branch
-}
-
+alias gitch="git checkout"
+alias gitpushme="git push -f origin HEAD:${THIS_BRANCH}"
+alias gits="git status"
+alias gitl="git log"
+alias gitb="git branch"
 
 _makesure(){
  	echo "sure?"
 	read $ANS
-	if [ "$ANS" = "yes" ];
+	if [ "$ANS" = "yes\n" ];
 	then
 		return 0
 	fi
@@ -254,12 +225,12 @@ _makesure(){
 	return 1
 }
 
-gitprune(){
+gitprune(){ #remove all local branches
 	_makesure && git branch | grep -v "master" | xargs git branch -D
 
 }
 
-gitfresh(){
+gitfresh(){ #remove given branch, replace it with its remote version
 	BRANCH=$1
 	_makesure && \
 	git checkout origin/$BRANCH && \
@@ -284,16 +255,34 @@ _complete_project_name(){
     return 0
 }
 
+_list_all_rootfs(){
+    ls ${WORKSPACE_TOP}/rootfs | grep "rootfs_"
+}
+
+_complete_rootfs_name(){
+    ROOTFSES=($(_list_all_rootfs))
+
+    COMPREPLY=()
+
+    CUR=${COMP_WORDS[COMP_CWORD]}
+    for i in "${ROOTFSES[@]}"
+    do
+       :
+       if [[ $i == "$CUR"* ]]; then
+           COMPREPLY+=($i)
+       fi
+    done
+
+    return 0
+}
+
 jp(){
     cd ${WORKSPACE_TOP}/$1
 }
 
-cdw(){
-    jp $1
-}
-
 complete -F _complete_project_name jp
-complete -F _complete_project_name cdw
+
+complete -F _complete_rootfs_name rfs
 
 prcheck_kernelight(){
 	echo "make sure that this is the correct list of test from CI!" | paint $YELLOW
@@ -306,5 +295,5 @@ prcheck_kernelight(){
 }
 
 # Enter to tmux when opening terminal
-[ -z "$TMUX" ] && tmux
+[ -z "$TMUX" ] && (tmux attach -t workplace || tmux new -s workplace)
 
