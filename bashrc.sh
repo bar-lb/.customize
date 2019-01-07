@@ -225,6 +225,14 @@ _makesure(){
 	return 1
 }
 
+getrfs(){
+    dockerize component-tool label --repo=rootfs rootfs_product_centos
+}
+
+drstatic(){
+    ROOTFS_PRODUCT_CENTOS=$1__rootfs_product_centos__${BUILD_TYPE} time dockerize run_test.sh $2 --debug --pylint
+}
+
 gitprune(){ #remove all local branches
 	_makesure && git branch | grep -v "master" | xargs git branch -D
 
