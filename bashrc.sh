@@ -228,7 +228,9 @@ getrfs(){
 }
 
 drstatic(){
-    ROOTFS_PRODUCT_CENTOS=$1__rootfs_product_centos__${BUILD_TYPE} time dockerize run_test.sh $2 --debug --pylint
+    HASH=$1
+    TEST_FILE=$2
+    ROOTFS_PRODUCT_CENTOS=$HASH__rootfs_product_centos__${BUILD_TYPE} time dockerize run_test.sh ${TEST_FILE} --debug --pylint
 }
 
 gitprune(){ #remove all local branches
