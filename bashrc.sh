@@ -227,9 +227,18 @@ getrfs(){
     dockerize component-tool label --repo=rootfs rootfs_product_centos
 }
 
+_drstatic_check() {
+    if ! cat $1 | grep "install_mgmt_stack" &> /dev/null ; then
+        echo -e "You need to call method 'install_mgmt_stack()' in your test."
+        return 1
+    fi
+    return 0
+}
+
 drstatic(){
     HASH=$1
     TEST_FILE=$2
+    _drstatic_check $TEST_FILE && \
     ROOTFS_PRODUCT_CENTOS=$HASH__rootfs_product_centos__${BUILD_TYPE} time dockerize run_test.sh ${TEST_FILE} --debug --pylint
 }
 
