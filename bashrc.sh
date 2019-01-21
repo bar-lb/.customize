@@ -160,6 +160,7 @@ fi
 ######## 'twenty-four shades of Bash' ############
 ###### the terminal styling factory! ########
 
+source ${HOME}/.customize/enviro.sh
 source ${HOME}/.customize/PS1.sh
 
 #############################################
