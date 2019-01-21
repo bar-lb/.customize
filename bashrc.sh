@@ -236,13 +236,22 @@ _drstatic_check() {
 }
 
 drstatic(){
+    # provide a specific rootfs to run. include only its hash as the first parameter of this cmd.
+    # currently working only with rootfs_product_centos
     HASH=$1
     TEST_FILE=$2
     _drstatic_check $TEST_FILE && \
     ROOTFS_PRODUCT_CENTOS=$HASH__rootfs_product_centos__${BUILD_TYPE} time dockerize run_test.sh ${TEST_FILE} --debug --pylint
 }
 
-gitprune(){ #remove all local branches
+dralloc() {
+    # choose an allocator to run on
+    ALLOCATOR_URI="$URI:$1"
+    dr $2
+}
+
+gitprune(){
+    #remove all local branches
 	_makesure && git branch | grep -v "master" | xargs git branch -D
 
 }
