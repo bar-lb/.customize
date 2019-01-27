@@ -182,6 +182,11 @@ rfs(){ # build and checkin rootfs
     cd ${CAME_FROM}
 }
 
+alias rfsp = "rfs rootfs_product_centos"
+alias rfsb = "rfs rootfs_product_base_centos"
+alias rfshost = "rfs rootfs_host_basic"
+alias rfsh = "rfshost"
+
 kernmake(){ # build relevant rootfses for running kernelight tests
     rfs rootfs_product_base$testOS
 }
