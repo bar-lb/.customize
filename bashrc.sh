@@ -321,6 +321,12 @@ prcheck_kernelight(){
 		--parallel 8 racktests/*.py ${USRLIGHT_RACKTEST}/{01,02,03,04,05,17,23,30}_*
 }
 
+letitgo() { # clean your workspace to free storage
+    _makesure && \
+    sudo rm -rf $WORKSPACE_TOP/build && \
+    sudo rm -rf /var/lib/osmosis/*
+}
+
 # Enter to tmux when opening terminal
 [ -z "$TMUX" ] && (tmux attach -t workplace || tmux new -s workplace)
 
