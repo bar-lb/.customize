@@ -170,7 +170,9 @@ source ${HOME}/.customize/PS1.sh
 
 #don't use those who start with '__'
 
-alias dr="dockerize run_test.sh --debug --pylint"
+INFINITY=999999999
+
+alias dr="dockerize run_test.sh --debug --pylint --timeout $INFINITY"
 
 rfs(){ # build and checkin rootfs
     CAME_FROM=$PWD
