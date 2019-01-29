@@ -317,6 +317,14 @@ complete -F _complete_project_name jp
 
 complete -F _complete_rootfs_name rfs
 
+alias jpk="jp kernelight"
+alias jps="jp systests"
+alias jpu="jp usrlight"
+alias jpm="jp management"
+alias jpt="jp testOSterone"
+alias jpr="jp rootfs"
+alias jpc="jp common"
+
 prcheck_kernelight(){
 	echo "make sure that this is the correct list of test from CI!" | paint $YELLOW
 	sleep 5
