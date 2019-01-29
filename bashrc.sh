@@ -337,8 +337,10 @@ prcheck_kernelight(){
 
 letitgo() { # clean your workspace to free storage
     _makesure && \
+    echo "Deleting, be patient...." && \
     sudo rm -rf $WORKSPACE_TOP/build && \
-    sudo rm -rf /var/lib/osmosis/*
+    sudo rm -rf /var/lib/osmosis/* && \
+    echo "Done!"
 }
 
 # Enter to tmux when opening terminal
