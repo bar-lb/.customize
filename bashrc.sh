@@ -255,7 +255,7 @@ drstatic(){
 dralloc() {
     # choose an allocator to run on
     ALLOCATOR_URI="$URI:$1"
-    dr $2
+    drpt $2
 }
 
 gitprune(){
