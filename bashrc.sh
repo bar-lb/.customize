@@ -221,6 +221,17 @@ alias gitpushme="git push -f origin HEAD:$(gitget)"
 alias gits="git status"
 alias gitl="git log"
 alias gitb="git branch"
+alias gitp="gitpushme"
+
+gitpushpart(){
+    PARENT=$1
+    THIS_BRANCH=$(gitget)
+    $("gitch HEAD~{$PARENT}")
+    gitpushme
+    gitch $THIS_BRANCH
+}
+
+alias gitpp="gitpushpart"
 
 _makesure(){
  	echo "sure?"
