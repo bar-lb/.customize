@@ -212,10 +212,12 @@ sync01(){ # *experimental* create a shared folder betweem local comp and build01
     scp -r /home/$USER/sync01_files bar@build01:/users1/$USER/
 }
 
-THIS_BRANCH=$(__git_ps1 | tr -d '()' | cut -c 2-)
+gitget(){
+    echo $(__git_ps1 | tr -d '()' | cut -c 2-)
+}
 
 alias gitch="git checkout"
-alias gitpushme="git push -f origin HEAD:${THIS_BRANCH}"
+alias gitpushme="git push -f origin HEAD:$(gitget)"
 alias gits="git status"
 alias gitl="git log"
 alias gitb="git branch"
