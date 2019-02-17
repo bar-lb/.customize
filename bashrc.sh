@@ -326,16 +326,6 @@ alias jpt="jp testOSterone"
 alias jpr="jp rootfs"
 alias jpc="jp common"
 
-prcheck_kernelight(){
-	echo "make sure that this is the correct list of test from CI!" | paint $YELLOW
-	sleep 5
-	jp kernelight && \
-	dockerize run_test.sh \
-		--pylint --reporter_name xml_reporter --tag_name=sanity \
-		--retries_allocation_failures 4 \
-		--parallel 8 racktests/*.py ${USRLIGHT_RACKTEST}/{01,02,03,04,05,17,23,30}_*
-}
-
 letitgo() { # clean your workspace to free storage
     _makesure && \
     echo "Deleting, be patient...." && \
