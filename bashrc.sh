@@ -174,6 +174,8 @@ INFINITY=999999999
 
 alias drpt="dockerize run_test.sh --pylint --timeout $INFINITY"
 alias dr="drpt --debug"
+alias dm="dockerize make"
+alias dmm="dm clean-all docker-build"
 
 rfs(){ # build and checkin rootfs
     CAME_FROM=$PWD
@@ -186,6 +188,7 @@ rfs(){ # build and checkin rootfs
 alias rfsp="rfs rootfs_product_centos"
 alias rfsb="rfs rootfs_product_base_centos"
 alias rfsh="rfs rootfs_host_basic"
+alias rfsall="rfsp && rfsh"
 
 kernmake(){ # build relevant rootfses for running kernelight tests
     rfs rootfs_product_base$testOS
