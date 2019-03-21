@@ -341,6 +341,7 @@ alias jpm="jp management"
 alias jpt="jp testOSterone"
 alias jpr="jp rootfs"
 alias jpc="jp common"
+alias flee="cd ~/cool_repos"
 
 letitgo() { # clean your workspace to free storage
     _makesure && \
