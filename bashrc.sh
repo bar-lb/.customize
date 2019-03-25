@@ -176,6 +176,7 @@ alias drpt="dockerize run_test.sh --pylint --timeout $INFINITY"
 alias dr="drpt --debug"
 alias dm="dockerize make"
 alias dmm="dm clean-all docker-build"
+alias agn="ag --ignore-dir racktests/ --ignore-dir tests/ --ignore-dir test_logs/"
 
 rfs(){ # build and checkin rootfs
     CAME_FROM=$PWD
