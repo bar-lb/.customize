@@ -17,12 +17,15 @@ Plug 'vim-airline/vim-airline'
 Plug 'w0rp/ale'
 Plug 'zchee/deoplete-clang'
 Plug 'zchee/deoplete-jedi'
+Plug 'thaerkh/vim-workspace'
+Plug 'fcpg/vim-orbital'
 call plug#end()
 
 set number          " show line numbers
 set laststatus=2    " always show status line
 set background=dark
-colorscheme gruvbox
+syntax on
+colorscheme one
 set cursorline
 
 " navigation
