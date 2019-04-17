@@ -175,7 +175,8 @@ INFINITY=999999999
 alias drpt="dockerize run_test.sh --pylint --timeout $INFINITY"
 alias dr="drpt --debug"
 alias dm="dockerize make"
-alias dmm="dm clean-all docker-build"
+alias dmm="dm clean-all docker-build" # for compiling management code
+alias dmu="dm -f Makefile.lb clean build install" # for compiling usrlight code
 alias agn="ag --ignore-dir racktests/ --ignore-dir tests/ --ignore-dir test_logs/"
 
 rfs(){ # build and checkin rootfs
