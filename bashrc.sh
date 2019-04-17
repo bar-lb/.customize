@@ -267,7 +267,7 @@ drstatic(){
     HASH=$1
     TEST_FILE=$2
     _drstatic_check $TEST_FILE && \
-    ROOTFS_PRODUCT_CENTOS=$HASH__rootfs_product_centos__${BUILD_TYPE} time dockerize run_test.sh ${TEST_FILE} --debug --pylint
+    ROOTFS_PRODUCT_CENTOS=${HASH}__rootfs_product_centos__${BUILD_TYPE} time dockerize run_test.sh ${TEST_FILE} --debug --pylint
 }
 
 dralloc() {
