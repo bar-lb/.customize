@@ -176,6 +176,7 @@ alias drpt="dockerize run_test.sh --pylint --timeout $INFINITY"
 alias dr="drpt --debug"
 alias dm="dockerize make"
 alias dmm="dm clean-all docker-build" # for compiling management code
+alias dmmm="jpm && dmm && jps"
 alias dmu="dm -f Makefile.lb clean build install" # for compiling usrlight code
 alias agn="ag --ignore-dir racktests/ --ignore-dir tests/ --ignore-dir test_logs/"
 alias lbctags="ctags -R ${WORKSPACE_TOP}/kernelight/ ${WORKSPACE_TOP}/usrlight/ ${WORKSPACE_TOP}/management/ ${WORKSPACE_TOP}/systests/ ${WORKSPACE_TOP}/testOSterone/ ${WORKSPACE_TOP}/common/"
