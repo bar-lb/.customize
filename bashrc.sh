@@ -334,6 +334,14 @@ jp(){
     cd ${WORKSPACE_TOP}/$1
 }
 
+where_have_i_crashed() {
+    KOFILE=$1
+    LOCATION=$2
+    eu-addr2line -e ${KOFILE} -j .code ${LOCATION}
+}
+
+alias whic="where_have_i_crashed"
+
 complete -F _complete_project_name jp
 
 complete -F _complete_rootfs_name rfs
