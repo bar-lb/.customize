@@ -363,6 +363,20 @@ letitgo() { # clean your workspace to free storage
     echo "Done!"
 }
 
+newproject() {
+    TICKET=$1
+    BRANCH="${USER}/$2"
+    ALTBRANCH="${USER}/issue_of_$2"
+ 
+    git fetch
+    git checkout -b ${ALTBRANCH} origin/master
+    git checkout "issue_stack" || git checkout -b "issue_stack" origin/master
+    git cherry_pick ${ALTBRANCH} || echo "FAILED TO ADD TO STACK!"
+    git checkout ${ALTBRANCH}
+    git commit -m "Issue: ${TICKET}" --allow-empty
+    git checkout -b ${BRANCH} origin/master
+}
+
 # Enter to tmux when opening terminal
 [ -z "$TMUX" ] && (tmux attach -t workplace || tmux new -s workplace)
 
