@@ -1,0 +1,1 @@
+/home/bar/cool_repos/dotfiles/dotfiles/.config/nvim/after/ftplugin/c.vim
