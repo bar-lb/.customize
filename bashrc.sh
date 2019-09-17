@@ -377,6 +377,14 @@ newproject() {
     git checkout -b ${BRANCH} origin/master
 }
 
+alertdone() {
+    read MSG
+    notify-send "Command Done!" "$MSG"
+}
+
+alias alertd="alertdone"
+alias ad="alertdone"
+
 # Enter to tmux when opening terminal
 [ -z "$TMUX" ] && (tmux attach -t workplace || tmux new -s workplace)
 
