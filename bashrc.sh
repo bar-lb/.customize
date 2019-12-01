@@ -294,7 +294,7 @@ gitfresh(){ #remove given branch, replace it with its remote version
 }
 
 _complete_project_name(){
-    REPOS=( "kernelight" "usrlight" "testOSterone" "common" "management" "systests" "rootfs" )
+    REPOS=( "kernelight" "usrlight" "testOSterone" "common" "management" "systests" "rootfs" "duroslight" )
 
     COMPREPLY=()
 
@@ -354,6 +354,7 @@ alias jpm="jp management"
 alias jpt="jp testOSterone"
 alias jpr="jp rootfs"
 alias jpc="jp common"
+alias jpd="jp duroslight"
 alias flee="cd ~/cool_repos"
 
 letitgo() { # clean your workspace to free storage
