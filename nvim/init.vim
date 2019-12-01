@@ -1,23 +1,24 @@
 " define plugins
 call plug#begin('~/.vim/plugged')
 "Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'ekalinin/Dockerfile.vim'
-"Plug 'fatih/vim-go'
+"Plug 'christoomey/vim-tmux-navigator'
+Plug 'ekalinin/Dockerfile.vim' "color scheme for dockerfiles
+Plug 'fatih/vim-go' "gives several new commands useful when writing in GO
 Plug 'junegunn/fzf', {'dir': '~/.fzf', 'do': './install --all'}
-Plug 'junegunn/fzf.vim'
-Plug 'majutsushi/tagbar'
-Plug 'morhetz/gruvbox'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
-Plug 'skywind3000/asyncrun.vim'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'vim-airline/vim-airline'
-Plug 'w0rp/ale'
-Plug 'zchee/deoplete-clang'
-Plug 'zchee/deoplete-jedi'
-Plug 'thaerkh/vim-workspace'
+Plug 'junegunn/fzf.vim' "Enables 'Ag' ang 'Rg' commands as well as many others.
+Plug 'majutsushi/tagbar' "Easy use of CTAGS
+Plug 'scrooloose/nerdcommenter' "allows to easily define indentation size
+Plug 'scrooloose/nerdtree' "visually browse complex directory hierarchies
+"Plug 'skywind3000/asyncrun.vim'
+Plug 'tpope/vim-fugitive' "use Git commands in vim
+Plug 'tpope/vim-surround' "helps you to surround text with (), {}, '', etc...
+Plug 'vim-airline/vim-airline' "status bar at the bottom of the window
+Plug 'w0rp/ale' "syntax checking and semantic errors
+"Plug 'zchee/deoplete-clang'
+"Plug 'zchee/deoplete-jedi'
+"Plug 'thaerkh/vim-workspace'
+"" == color schemes ==
+"Plug 'morhetz/gruvbox'
 Plug 'fcpg/vim-orbital'
 call plug#end()
 
@@ -25,7 +26,7 @@ set number          " show line numbers
 set laststatus=2    " always show status line
 set background=dark
 syntax on
-colorscheme one
+colorscheme orbital
 set cursorline
 
 " navigation
