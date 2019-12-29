@@ -14,6 +14,7 @@ esac
 WORKSPACE_TOP="${HOME}/workspace"
 
 # automaticaly enter workspace
+WORKSPACE_DEFAULT="workspace"
 if [[ $PWD != "${WORKSPACE_TOP}"* ]]; then
   cd $WORKSPACE_TOP
 fi
@@ -367,6 +368,15 @@ alias jpc="jp common"
 alias jpd="jp duroslight"
 alias flee="cd ~/cool_repos"
 
+gotowork() {
+    WORKSPACE_TOP="${HOME}/$1"
+    cd ${WORKSPACE_TOP}
+    source ${WORKSPACE_TOP}/.env
+}
+
+alias gw="gotowork workspace"
+alias gu="gotowork workuniverse"
+
 letitgo() { # clean your workspace to free storage
     _makesure && \
     echo "Deleting, be patient...." && \
@@ -396,6 +406,10 @@ alertdone() {
 
 alias alertd="alertdone"
 alias ad="alertdone"
+
+#go to default workspace
+
+gotowork ${WORKSPACE_DEFAULT}
 
 # Enter to tmux when opening terminal
 [ -z "$TMUX" ] && (tmux attach -t workplace || tmux new -s workplace)
