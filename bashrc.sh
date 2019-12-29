@@ -378,7 +378,7 @@ gotowork() {
 alias gw="gotowork workspace"
 alias gu="gotowork workuniverse"
 
-letitgo() { # clean your workspace to free storage
+diskfull() { # clean your workspace to free storage
     _makesure && \
     echo "Deleting, be patient...." && \
     sudo rm -rf $WORKSPACE_TOP/build && \
