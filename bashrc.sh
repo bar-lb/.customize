@@ -366,7 +366,7 @@ alias jpt="jp testOSterone"
 alias jpr="jp rootfs"
 alias jpc="jp common"
 alias jpd="jp duroslight"
-alias flee="cd ~/cool_repos"
+alias flee="cd ~/PersonalStuff"
 
 gotowork() {
     WORKSPACE_TOP="${HOME}/$1"
