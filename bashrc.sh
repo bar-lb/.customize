@@ -194,7 +194,7 @@ alias lbctags="ctags_def"
 rfs(){ # build and checkin rootfs
     CAME_FROM=$PWD
     cd ${WORKSPACE_TOP}/rootfs
-    sudo rm -rf $WORKSPACE_TOP/build || echo "FAILED TO DELETE OLD BUILDS!";
+#    sudo rm -rf $WORKSPACE_TOP/build || echo "FAILED TO DELETE OLD BUILDS!";
     (dockerize make clean $1 || (echo -e "ROOTFS BUILD FAILED! $1" | paint $RED | paint $BOLD)) && \
     (dockerize make checkin_$1 || (echo -e "ROOTFS CHECKIN FAILED $1" | paint $RED | paint $UNDERLINE));
     cd ${CAME_FROM}
