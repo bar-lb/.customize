@@ -304,7 +304,7 @@ gitfresh(){ #remove given branch, replace it with its remote version
 }
 
 _complete_project_name(){
-    REPOS=( "kernelight" "usrlight" "testOSterone" "common" "management" "systests" "rootfs" "duroslight" )
+    REPOS=( "kernelight" "usrlight" "testOSterone" "common" "management" "systests" "rootfs" "duroslight" "lightbits-api")
 
     COMPREPLY=()
 
