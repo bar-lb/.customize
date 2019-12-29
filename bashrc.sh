@@ -366,6 +366,7 @@ alias jpt="jp testOSterone"
 alias jpr="jp rootfs"
 alias jpc="jp common"
 alias jpd="jp duroslight"
+alias jpapi="jp lightbits-api"
 alias flee="cd ~/PersonalStuff"
 
 gotowork() {
