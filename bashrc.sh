@@ -172,6 +172,16 @@ source ${HOME}/.customize/PS1.sh
 
 INFINITY=999999999
 
+ctags_def() {
+    ctags -R ${WORKSPACE_TOP}/kernelight/
+    ctags -R ${WORKSPACE_TOP}/usrlight/
+    ctags -R ${WORKSPACE_TOP}/duroslight/
+    ctags -R ${WORKSPACE_TOP}/management/
+    ctags -R ${WORKSPACE_TOP}/systests/
+    ctags -R ${WORKSPACE_TOP}/testOSterone/
+    ctags -R ${WORKSPACE_TOP}/common/
+}
+
 alias drpt="dockerize run_test.sh --pylint --timeout $INFINITY"
 alias dr="drpt --debug"
 alias dm="dockerize make"
@@ -179,7 +189,7 @@ alias dmm="dm clean-all docker-build" # for compiling management code
 alias dmmm="jpm && dmm && jps"
 alias dmu="dm -f Makefile.lb clean build install" # for compiling usrlight code
 alias agn="ag --ignore-dir racktests/ --ignore-dir tests/ --ignore-dir test_logs/"
-alias lbctags="ctags -R ${WORKSPACE_TOP}/kernelight/ ${WORKSPACE_TOP}/usrlight/ ${WORKSPACE_TOP}/management/ ${WORKSPACE_TOP}/systests/ ${WORKSPACE_TOP}/testOSterone/ ${WORKSPACE_TOP}/common/"
+alias lbctags="ctags_def"
 
 rfs(){ # build and checkin rootfs
     CAME_FROM=$PWD
