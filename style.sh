@@ -34,3 +34,13 @@ paint(){
     RESET=$(_wrapup "\e[${FORMAT_RESET}m")
     echo -E "$COLOR$TEXT$RESET"
 }
+
+paintrnd() {
+    MIN=$1
+    LEN=$2
+    read -r TEXT
+    RND=$(( ( RANDOM % $LEN )  + $MIN ))
+    COLOR=$(_wrapup "\e[38;5;${RND}m")
+    RESET=$(_wrapup "\e[${FORMAT_RESET}m")
+    echo -E "$COLOR$TEXT$RESET"
+}
