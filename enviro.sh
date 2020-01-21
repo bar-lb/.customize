@@ -2,10 +2,8 @@ PRODUCT="rootfs_product_centos"
 BASE="rootfs_product_base_centos"
 HOST="rootfs_host_basic"
 
-LABGW="http://labgw:22222"
 
-URI="tcp://labgw"
-NDN="ndn"
+URI="http://labgw"
 APORT="22222"
 BPORT="22223"
 CPORT="22224"
@@ -19,3 +17,5 @@ CLLOC="$URI:$CPORT"
 DLLOC="$URI:$DPORT"
 FLLOC="$URI:$FPORT"
 GLLOC="$URI:$GPORT"
+
+LAB="$ALLOC"
