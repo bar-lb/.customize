@@ -168,6 +168,7 @@ source ${HOME}/.customize/PS1.sh
 
 ################## Shortcuts! ###############
 
+source ${HOME}/.customize/async_channel/async_manager.sh
 
 #don't use those who start with '__'
 
