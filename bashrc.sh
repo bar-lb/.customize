@@ -216,6 +216,14 @@ sysmake(){ # build relevant rootfses for running system tests
     rfs rootfs_host_basic
 }
 
+setup_breakpoint() {
+    CURRLOC=$PWD
+    cd ${WORKSPACE_TOP}/testOSterone && \
+    git cherry-pick origin/bar/__bp__
+    cd $CURRLOC
+}
+
+alias bp="setup_breakpoint"
 
 sysupload(){ # solves the 'no files to upload' problem on systests
         CURRLOC=$PWD
