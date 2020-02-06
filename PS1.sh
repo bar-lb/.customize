@@ -25,7 +25,8 @@ DIR=$(echo "\W" | paintrnd $COLOR_MIN $COLOR_LEN | paint $BOLD)
 WORKSPACE=$(echo "|\$(get_workspace_name)|" | paintrnd $COLOR_MIN $COLOR_LEN | paint $BOLD)
 END=$(echo "\$" | paintrnd $COLOR_MIN $COLOR_LEN | paint $BOLD)
 SYMBOL="$(echo "\$(make_symbol)")"
+ALLOCS="?" #"$(echo "\$(alcount)")"
 
-PS1="$SYMBOL $HOST $GIT $WORKSPACE $DIR$END "
+PS1="$SYMBOL $HOST $GIT $WORKSPACE $ALLOCS $DIR$END "
 
 # PS1="$(echo -E "$PS1" | paint $BOLD)"
