@@ -10,6 +10,8 @@ get_workspace_name() {
 make_symbol() {
     if [[ "$WORKSPACE_TOP" = *"universe"* ]]; then
         echo "🛸"
+    elif [[ "$WORKSPACE_TOP" = *"duros"* ]]; then
+        echo "🚧"
     else
         echo "🥧"
     fi

@@ -392,6 +392,7 @@ gotowork() {
 
 alias gw="gotowork workspace"
 alias gu="gotowork workuniverse"
+alias gd="gotowork durospace"
 
 diskfull() { # clean your workspace to free storage
     _makesure && \
