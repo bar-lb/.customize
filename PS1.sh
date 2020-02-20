@@ -1,6 +1,14 @@
 source ${HOME}/.customize/style.sh
 
-COLOR_MIN=106
+#----------- few colors-sets -----------
+# -- set the desired one in COLOR_MIN --
+PINKISH=196
+GREENISH=106
+PURPULISH=124
+YELLOWISH=214
+#--------------------------------------
+
+COLOR_MIN=$PINKISH
 COLOR_LEN=12
 
 get_workspace_name() {
