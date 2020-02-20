@@ -385,15 +385,15 @@ alias jpapi="jp lightbits-api"
 alias jpla="jp light-app"
 alias flee="cd ~/PersonalStuff"
 
-gotowork() {
+switchwork() {
     WORKSPACE_TOP="${HOME}/$1"
     cd ${WORKSPACE_TOP}
     source ${WORKSPACE_TOP}/.env
 }
 
-alias gw="gotowork workspace"
-alias gu="gotowork workuniverse"
-alias gd="gotowork durospace"
+alias xw="switchwork workspace"
+alias xu="switchwork workuniverse"
+alias xd="switchwork durospace"
 
 diskfull() { # clean your workspace to free storage
     _makesure && \
@@ -427,7 +427,7 @@ alias ad="alertdone"
 
 #go to default workspace
 
-gotowork ${WORKSPACE_DEFAULT}
+switchwork ${WORKSPACE_DEFAULT}
 
 # Enter to tmux when opening terminal
 [ -z "$TMUX" ] && (tmux attach -t workplace || tmux new -s workplace)
