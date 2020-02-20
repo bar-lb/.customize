@@ -320,7 +320,7 @@ gitfresh(){ #remove given branch, replace it with its remote version
 }
 
 _complete_project_name(){
-    REPOS=( "kernelight" "usrlight" "testOSterone" "common" "management" "systests" "rootfs" "duroslight" "lightbits-api")
+    REPOS=( "kernelight" "usrlight" "testOSterone" "common" "management" "systests" "rootfs" "duroslight" "lightbits-api" "light-app" )
 
     COMPREPLY=()
 
@@ -382,6 +382,7 @@ alias jpr="jp rootfs"
 alias jpc="jp common"
 alias jpd="jp duroslight"
 alias jpapi="jp lightbits-api"
+alias jpla="jp light-app"
 alias flee="cd ~/PersonalStuff"
 
 gotowork() {
