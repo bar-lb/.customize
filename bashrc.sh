@@ -398,6 +398,9 @@ alias xw="switchwork workspace"
 alias xu="switchwork workuniverse"
 alias xd="switchwork durospace"
 
+alias jpmd="xd && jpm"
+alias jpdd="xd && jpd"
+
 diskfull() { # clean your workspace to free storage
     _makesure && \
     echo "Deleting, be patient...." && \
