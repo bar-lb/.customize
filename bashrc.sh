@@ -386,9 +386,12 @@ alias jpla="jp light-app"
 alias flee="cd ~/PersonalStuff"
 
 switchwork() {
-    WORKSPACE_TOP="${HOME}/$1"
-    cd ${WORKSPACE_TOP}
-    source ${WORKSPACE_TOP}/.env
+    OLD_WORKSPACE="${WORKSPACE_TOP}"
+    WORKSPACE_NEW="${HOME}/$1"
+    LOC=$(pwd)
+    NEW_LOC=$(echo $LOC | sed -e "s:${OLD_WORKSPACE}:${WORKSPACE_NEW}:g")
+    cd $NEW_LOC &&
+    source ${WORKSPACE_NEW}/.env && echo "welcome to ${WORKSPACE_NEW}"
 }
 
 alias xw="switchwork workspace"
